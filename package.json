@@ -1,6 +1,6 @@
 {
   "name": "electron-playground",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "personal electron playground",
   "main": "app/main/index.js",
   "scripts": {
@@ -10,7 +10,7 @@
     "prebuild": "cd app/renderer/home/app && yarn build",
     "build": "electron-builder",
     "prerelease": "cd app/renderer/home/app && yarn build",
-    "release": "cross-env GH_TOKEN=a0f1d4871020ca98601d3855f5f2444cef09ac1a electron-builder"
+    "release": "cross-env GH_TOKEN=f02bc0a899a662f3e31087689ccebed8852722f4 electron-builder"
   },
   "repository": "https://github.com/wyzgo/electron-playground",
   "keywords": [
