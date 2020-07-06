@@ -8,7 +8,9 @@
     "start:electron": "electron .",
     "start:home": "cd app/renderer/home/app && yarn start",
     "prebuild": "cd app/renderer/home/app && yarn build",
-    "build": "electron-builder"
+    "build": "electron-builder",
+    "prerelease": "cd app/renderer/home/app && yarn build",
+    "release": "cross-env GH_TOKEN=874328d36f04f72677892eda3951e2a9e490fe96 electron-builder"
   },
   "repository": "https://github.com/electron/electron-quick-start",
   "keywords": [
