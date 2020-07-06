@@ -10,9 +10,9 @@
     "prebuild": "cd app/renderer/home/app && yarn build",
     "build": "electron-builder",
     "prerelease": "cd app/renderer/home/app && yarn build",
-    "release": "cross-env GH_TOKEN=874328d36f04f72677892eda3951e2a9e490fe96 electron-builder"
+    "release": "cross-env GH_TOKEN=a0f1d4871020ca98601d3855f5f2444cef09ac1a electron-builder"
   },
-  "repository": "https://github.com/electron/electron-quick-start",
+  "repository": "https://github.com/wyzgo/electron-playground",
   "keywords": [
     "Electron",
     "quick",
@@ -38,7 +38,11 @@
     },
     "asar": true,
     "mac": {
-      "icon": "resources/icon.icns"
+      "icon": "resources/icon.icns",
+      "target": [
+        "dmg",
+        "zip"
+      ]
     },
     "files": [
       "**/*",
