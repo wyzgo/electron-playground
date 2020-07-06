@@ -1,0 +1,20 @@
+.
+├── app  =>  业务逻辑代码
+│   ├── main  =>  主进程
+│   │   └── index.js  =>  入口文件
+│   └── renderer  =>  渲染进程
+│       ├── framelessWindow
+│       │   ├── frameless.html
+│       │   └── index.js
+│       ├── home
+│       │   ├── app  =>  create-react-app生成
+│       │   ├── index.js
+│       │   └── preload.js
+│       └── ipc
+│           ├── index.js
+│           └── ipcTest.html
+├── dist  =>  打包后dmg、exe文件存放目录
+├── node_modules
+├── README.md
+├── package.json
+└── resources  =>  静态资源目录，存放App的icon，dmg的背景图等

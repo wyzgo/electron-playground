@@ -1,0 +1,11 @@
+.ipc-test {
+    margin: 20px;
+}
+
+.ipc-test>.ipc-test-input {
+    width: 200px;
+}
+
+.ipc-test>.ipc-test-button {
+    margin-left: 20px;
+}

@@ -1,39 +1,70 @@
 {
-  "name": "electron-app",
-  "version": "0.1.0",
-  "private": true,
-  "dependencies": {
-    "@testing-library/jest-dom": "^4.2.4",
-    "@testing-library/react": "^9.3.2",
-    "@testing-library/user-event": "^7.1.2",
-    "@types/jest": "^24.0.0",
-    "@types/node": "^12.0.0",
-    "@types/react": "^16.9.0",
-    "@types/react-dom": "^16.9.0",
-    "react": "^16.13.1",
-    "react-dom": "^16.13.1",
-    "react-scripts": "3.4.1",
-    "typescript": "~3.7.2"
-  },
+  "name": "electron-playground",
+  "version": "1.0.0",
+  "description": "personal electron playground",
+  "main": "app/main/index.js",
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "start": "concurrently \"yarn start:home\" \"wait-on http://localhost:3000 && yarn start:electron\"",
+    "start:electron": "electron .",
+    "start:home": "cd app/renderer/home/app && yarn start",
+    "prebuild": "cd app/renderer/home/app && yarn build",
+    "build": "electron-builder"
   },
-  "eslintConfig": {
-    "extends": "react-app"
+  "repository": "https://github.com/electron/electron-quick-start",
+  "keywords": [
+    "Electron",
+    "quick",
+    "start",
+    "tutorial",
+    "demo"
+  ],
+  "author": "wyz",
+  "license": "CC0-1.0",
+  "devDependencies": {
+    "concurrently": "^5.2.0",
+    "cross-env": "^7.0.2",
+    "electron": "9.0.3",
+    "electron-builder": "^22.7.0",
+    "wait-on": "^5.0.1"
   },
-  "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
+  "build": {
+    "appId": "com.electron.electron-playground",
+    "productName": "electron-playground",
+    "copyright": "Copyright © 2020 ${author}",
+    "electronDownload": {
+      "mirror": "https://npm.taobao.org/mirrors/electron/"
+    },
+    "asar": true,
+    "mac": {
+      "icon": "resources/icon.icns"
+    },
+    "files": [
+      "**/*",
+      "!**/node_modules/*/{CHANGELOG.md,README.md,README,readme.md,readme}",
+      "!**/node_modules/*/{test,__tests__,tests,powered-test,example,examples}",
+      "!**/node_modules/*.d.ts",
+      "!**/node_modules/.bin",
+      "!**/*.{iml,o,hprof,orig,pyc,pyo,rbc,swp,csproj,sln,xproj}",
+      "!.editorconfig",
+      "!**/._*",
+      "!**/{.DS_Store,.git,.hg,.svn,CVS,RCS,SCCS,.gitignore,.gitattributes}",
+      "!**/{__pycache__,thumbs.db,.flowconfig,.idea,.vs,.nyc_output}",
+      "!**/{appveyor.yml,.travis.yml,circle.yml}",
+      "!**/{npm-debug.log,yarn.lock,.yarn-integrity,.yarn-metadata.json}",
+      "!app/renderer/home/app/**/*",
+      "app/renderer/home/app/build"
     ],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
+    "dmg": {
+      "window": {
+        "width": 540,
+        "height": 380
+      }
+    },
+    "publish": [
+      "github"
     ]
+  },
+  "dependencies": {
+    "electron-is-dev": "^1.2.0"
   }
 }

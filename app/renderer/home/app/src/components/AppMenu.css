@@ -1,0 +1,7 @@
+.app-menu {
+    margin: 20px;
+}
+
+.app-menu>.app-menu-button {
+    margin-left: 20px;
+}
