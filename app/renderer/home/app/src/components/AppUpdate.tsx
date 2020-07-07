@@ -11,11 +11,12 @@ function AppUpdate() {
     setLoading(true);
     electron.ipcRenderer.send("app-update", true);
   };
-  electron.ipcRenderer.on("app-update-reply", (msg: string) => {
-    if (msg === "end") {
-      setLoading(false);
+  electron.ipcRenderer.on(
+    "app-update-reply",
+    (notCare: any, showLoading: boolean) => {
+      setLoading(showLoading);
     }
-  });
+  );
   return (
     <div className="app-update">
       <Button onClick={buttonClick}>检查更新</Button>
