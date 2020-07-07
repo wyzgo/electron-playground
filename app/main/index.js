@@ -1,22 +1,26 @@
 const { app, BrowserWindow } = require("electron");
-const ipc = require("../renderer/ipc");
-const framelessWindow = require("../renderer/framelessWindow");
-const home = require("../renderer/home");
-
+const ipc = require("./ipc");
+const framelessWindow = require("./framelessWindow");
+const home = require("./home");
+const updater = require("./updater");
 
 // This method will be called when Electron has finished
 // initialization and is ready to create browser windows.
 // Some APIs can only be used after this event occurs.
 app.whenReady().then(() => {
-  
+
+  let minWindow;
+
   //home
-  home();
+  minWindow = home();
 
   //ipc test
   ipc();
 
   //frameless window test
   framelessWindow();
+
+  updater(minWindow);
 
   app.on("activate", function () {
     // On macOS it's common to re-create a window in the app when the

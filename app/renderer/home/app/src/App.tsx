@@ -10,6 +10,7 @@ import {
 import IpcTest from "./components/IpcTest";
 import Frameless from "./components/Frameless";
 import AppMenu from "./components/AppMenu";
+import AppUpdate from "./components/AppUpdate";
 import TrayTest from "./components/TrayTest";
 import "./App.css";
 
@@ -43,6 +44,10 @@ function App() {
               tab={<Link to="/tray-test">Tray</Link>}
               key="tray-test"
             ></TabPane>
+            <TabPane
+              tab={<Link to="/app-update">app-update</Link>}
+              key="app-update"
+            ></TabPane>
           </Tabs>
         </header>
         <Switch>
@@ -50,6 +55,7 @@ function App() {
           <Route path="/frameless" exact component={Frameless} />
           <Route path="/tray-test" exact component={TrayTest} />
           <Route path="/app-menu" exact component={AppMenu} />
+          <Route path="/app-update" exact component={AppUpdate} />
           <Redirect to="/ipc-test" />
         </Switch>
       </Router>

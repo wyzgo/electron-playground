@@ -9,7 +9,9 @@ module.exports = () => {
       transparent: true,
       frame: false,
     });
-    framelessWindow.loadFile(path.join(__dirname, "./frameless.html"));
+    framelessWindow.loadFile(
+      path.join(__dirname, "../renderer/framelessWindow/frameless.html")
+    );
   };
 
   ipcMain.on("open-frameless-window", function (event, message) {

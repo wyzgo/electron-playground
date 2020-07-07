@@ -12,7 +12,7 @@ module.exports = () => {
         nodeIntegration: true,
       },
     });
-    ipcWindow.loadFile(path.join(__dirname, "./ipcTest.html"));
+    ipcWindow.loadFile(path.join(__dirname, "../renderer/ipc/ipcTest.html"));
     return ipcWindow;
   };
 
