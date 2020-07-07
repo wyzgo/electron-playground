@@ -1,0 +1,4 @@
+owner: wyzgo
+repo: electron-playground
+provider: github
+updaterCacheDirName: electron-playground-updater
